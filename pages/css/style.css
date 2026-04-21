@@ -51,7 +51,6 @@ p, li {
   border-radius: 10px;
 }
 
-
 .hero h1 {
     border-bottom: none;
     margin-bottom: 10px;
@@ -143,11 +142,59 @@ footer {
 /* =========================================
    ШАПКА И МЕНЮ (Внутренние страницы)
    ========================================= */
+.tooltip {
+    position: relative;
+    cursor: help;
+    border-bottom: 1px dashed #999;
+}
+
+/* Всплывающее окно */
+.tooltip .tooltip-text {
+    visibility: hidden;
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 8px 12px;
+    border-radius: 6px;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: normal;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Стрелочка подсказки */
+.tooltip .tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+/* Показываем при наведении */
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+
 .page-header {
     background-color: #1a1c23;
     border-bottom: 1px solid #2d313a;
     padding: 15px 0;
     margin-bottom: 40px;
+    background-image: url("image/backgroundHacker.jpg");
+
 }
 
 .main-nav {
@@ -156,6 +203,22 @@ footer {
     align-items: center;
     gap: 20px;
 }
+
+.hero {
+    background-color: #1a1c23;
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 1px solid #2d313a;
+    margin-bottom: 40px;
+    background-image: url("image/backgroundHacker.jpg");
+}
+
+.text-container {
+  background: rgba(0,0,0,0.6);  /* полупрозрачный тёмный фон */
+  padding: 15px;
+  border-radius: 10px;
+}
+
 
 .btn-home {
     background-color: #2b2e38;
@@ -172,6 +235,8 @@ footer {
 .btn-home:hover {
     background-color: #3b404d;
     transform: translateY(-2px);
+    background-color: rgb(71, 71, 71);
+
 }
 
 .nav-links {
@@ -190,17 +255,21 @@ footer {
 }
 
 .nav-links li a {
-    color: #8b92a5;
+    color: #c9d1d9;
     text-decoration: none;
     padding: 8px 14px;
     border-radius: 6px;
     font-size: 14px;
     transition: all 0.2s ease;
     display: inline-block;
+    background: rgb(0, 0, 0);  /* полупрозрачный тёмный фон */
+    padding: 15px;
+    border-radius: 10px;
 }
 
 .nav-links li a:hover {
     background-color: #2b2e38;
+    background-color: rgb(71, 71, 71);
     color: #ffffff;
 }
 
