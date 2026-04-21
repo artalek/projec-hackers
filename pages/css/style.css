@@ -166,6 +166,8 @@ footer {
     z-index: 1;
     opacity: 0;
     transition: opacity 0.3s;
+    white-space: normal;
+    width: 250px;
 }
 
 /* Стрелочка подсказки */
