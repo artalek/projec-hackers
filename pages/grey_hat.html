@@ -4,55 +4,207 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grey Hat — Кодификатор хакеров</title>
-    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        /* =========================================
+           БАЗОВЫЕ СТИЛИ И ТЕМНАЯ ТЕМА
+           ========================================= */
+        body {
+            background-color: #0f1115;
+            color: #c9d1d9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #4caf50;
+            font-size: 2.2rem;
+            border-bottom: 2px solid #2d313a;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #ffffff;
+            margin-top: 0;
+        }
+
+        p, li {
+            font-size: 1.05rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* =========================================
+           ТЕКСТОВЫЕ БЛОКИ
+           ========================================= */
+        .info-block {
+            background-color: #1a1c23;
+            border: 1px solid #2d313a;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-block ul {
+            padding-left: 20px;
+        }
+
+        .info-block li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0 20px;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        /* =========================================
+           ШАПКА И МЕНЮ
+           ========================================= */
+        .page-header {
+            background-color: #1a1c23;
+            border-bottom: 1px solid #2d313a;
+            padding: 15px 0;
+            margin-bottom: 40px;
+        }
+
+        .main-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn-home {
+            background-color: #2b2e38;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            border: 1px solid #3c404b;
+            white-space: nowrap;
+        }
+
+        .btn-home:hover {
+            background-color: #3b404d;
+            transform: translateY(-2px);
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .nav-links li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li a {
+            color: #8b92a5;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .nav-links li a:hover {
+            background-color: #2b2e38;
+            color: #ffffff;
+        }
+
+        /* Активная вкладка - Grey Hat */
+        .nav-links li a.active {
+            background-color: #2e7d32;
+            color: #ffffff;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(46, 125, 50, 0.3);
+        }
+
+        @media (min-width: 900px) {
+            .main-nav {
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+            .nav-links {
+                margin-left: auto;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<nav class="container">
-    <a href="black_hat.html">Black Hat</a> | 
-    <a href="white_hat.html">White Hat</a> | 
-    <a href="grey_hat.html">Grey Hat</a> | 
-    <a href="script_kiddies.html">Script Kiddies</a> | 
-    <a href="hacktivists.html">Hacktivists</a> | 
-    <a href="state_sponsored.html">State-Sponsored</a> | 
-    <a href="insider_threats.html">Insider Threats</a> | 
-    <a href="cyber_terrorists.html">Cyber-terrorists</a> | 
-    <a href="suicide_hackers.html">Suicide Hackers</a> | 
-    <a href="neophytes.html">Neophytes</a>
-</nav>
+<header class="page-header">
+    <div class="container main-nav">
+        <a href="../index.html" class="btn-home">⬅ На главную</a>
+        <ul class="nav-links">
+            <li><a href="black_hat.html">Black Hat</a></li>
+            <li><a href="white_hat.html">White Hat</a></li>
+            <li><a href="grey_hat.html" class="active">Grey Hat</a></li>
+            <li><a href="script_kiddies.html">Script Kiddies</a></li>
+            <li><a href="hacktivists.html">Hacktivists</a></li>
+            <li><a href="state_sponsored.html">State-Sponsored</a></li>
+            <li><a href="insider_threats.html">Insider Threats</a></li>
+            <li><a href="cyber_terrorists.html">Cyber-terrorists</a></li>
+            <li><a href="suicide_hackers.html">Suicide Hackers</a></li>
+            <li><a href="neophytes.html">Neophytes</a></li>
+        </ul>
+    </div>
+</header>
 
 <main class="container">
     <h1>Grey Hat (Серые шляпы)</h1>
     
-    <section>
-        <h2>Определение</h2>
-        <p>Серые шляпы — это хакеры, которые могут нарушать законы или этические нормы, но, как правило, не имеют злого умысла. Они ищут уязвимости без разрешения владельца, но не используют их для кражи данных.</p>
+    <section class="info-block">
+        <h2>Определение и суть: Этика на грани</h2>
+        <p><strong>Grey Hat (Серые шляпы)</strong> находятся на границе между этичными исследователями (White Hat) и злоумышленниками (Black Hat). Они не крадут деньги и не уничтожают данные, но осознанно нарушают закон, взламывая системы без предварительного разрешения их владельца.</p>
     </section>
 
-    <section>
-        <h2>Мотивы</h2>
+    <section class="info-block">
+        <h2>Мотивы и типичная схема действий</h2>
+        <p>Серые шляпы ищут уязвимости ради любопытства, поиска признания в ИБ-сообществе или получения вознаграждения постфактум. Типичный пример:</p>
         <ul>
-            <li>Поиск признания в ИБ-сообществе.</li>
-            <li>Привлечение внимания компании к проблеме безопасности.</li>
-            <li>Иногда — получение вознаграждения постфактум.</li>
+            <li>Хакер находит уязвимость на сайте банка (или другой корпорации) без предварительного договора на пентест.</li>
+            <li>Он сообщает банку об обнаруженной «дыре» в безопасности.</li>
+            <li>Далее он может потребовать финансовое вознаграждение за свою работу (что юридически граничит с шантажом).</li>
+            <li>Если компания отказывается платить или исправлять уязвимость, Grey Hat может опубликовать информацию о ней в открытом доступе в сети.</li>
         </ul>
     </section>
 
-    <section>
-        <h2>Методы</h2>
-        <p>Используют те же инструменты, что и профессиональные пентестеры, но применяют их к публичным ресурсам без предварительного согласования. Часто публикуют информацию об уязвимости, если компания ее игнорирует.</p>
+    <section class="info-block">
+        <h2>Этические и правовые дебаты</h2>
+        <p>Отношение к серым шляпам в обществе и индустрии крайне противоречиво.</p>
+        <p>С одной стороны, некоторые считают их «санитарами леса», которые заставляют ленивые корпорации обращать внимание на безопасность данных своих пользователей. С другой стороны, правоохранительные органы и большинство экспертов рассматривают их действия как <strong>однозначное преступление</strong>. Сам факт несанкционированного доступа уже нарушает целостность системы, а владельцы бизнеса не могут быть уверены, что хакер не оставил бэкдор (скрытый доступ) перед тем, как сообщить об уязвимости.</p>
     </section>
 
-    <section>
+    <section class="info-block">
         <h2>Реальный кейс</h2>
-        <p><strong>Халил Шрейтех и Facebook (2013):</strong> Исследователь обнаружил баг, позволяющий писать на стене любого пользователя. После того как техподдержка проигнорировала его отчет, он взломал стену самого Марка Цукерберга, чтобы доказать наличие проблемы.</p>
-    </section>
-
-    <section>
-        <h2>Этический аспект</h2>
-        <p>Противоречив. С одной стороны, они помогают делать интернет безопаснее. С другой — самовольное проникновение в чужую систему остается незаконным и может напугать владельцев ресурсов.</p>
+        <p><strong>Халил Шрейтех и Facebook (2013):</strong> Палестинский ИБ-исследователь обнаружил баг, позволяющий писать на стене абсолютно любого пользователя социальной сети. После того как техподдержка Facebook проигнорировала его отчет об уязвимости, он пошел на крайние меры — взломал личную стену самого Марка Цукерберга, чтобы наглядно доказать наличие проблемы. Уязвимость быстро закрыли, однако Facebook отказалась выплачивать Халилу баунти-вознаграждение, так как он нарушил правила платформы, атаковав реального пользователя.</p>
     </section>
 </main>
+
+<footer class="container">
+    <p>&copy; 2026 Лаборатория ИБ. Учебный проект.</p>
+</footer>
 
 </body>
 </html>

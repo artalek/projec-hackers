@@ -4,38 +4,210 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neophytes — Кодификатор хакеров</title>
-    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        /* =========================================
+           БАЗОВЫЕ СТИЛИ И ТЕМНАЯ ТЕМА
+           ========================================= */
+        body {
+            background-color: #0f1115;
+            color: #c9d1d9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #4caf50;
+            font-size: 2.2rem;
+            border-bottom: 2px solid #2d313a;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #ffffff;
+            margin-top: 0;
+        }
+
+        p, li {
+            font-size: 1.05rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* =========================================
+           ТЕКСТОВЫЕ БЛОКИ
+           ========================================= */
+        .info-block {
+            background-color: #1a1c23;
+            border: 1px solid #2d313a;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-block ul {
+            padding-left: 20px;
+        }
+
+        .info-block li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0 20px;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        /* =========================================
+           ШАПКА И МЕНЮ
+           ========================================= */
+        .page-header {
+            background-color: #1a1c23;
+            border-bottom: 1px solid #2d313a;
+            padding: 15px 0;
+            margin-bottom: 40px;
+        }
+
+        .main-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn-home {
+            background-color: #2b2e38;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            border: 1px solid #3c404b;
+            white-space: nowrap;
+        }
+
+        .btn-home:hover {
+            background-color: #3b404d;
+            transform: translateY(-2px);
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .nav-links li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li a {
+            color: #8b92a5;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .nav-links li a:hover {
+            background-color: #2b2e38;
+            color: #ffffff;
+        }
+
+        /* Активная вкладка - Neophytes */
+        .nav-links li a.active {
+            background-color: #2e7d32;
+            color: #ffffff;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(46, 125, 50, 0.3);
+        }
+
+        @media (min-width: 900px) {
+            .main-nav {
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+            .nav-links {
+                margin-left: auto;
+            }
+        }
+    </style>
 </head>
 <body>
-<nav class="container">
-    <a href="black_hat.html">Black Hat</a> | <a href="white_hat.html">White Hat</a> | <a href="grey_hat.html">Grey Hat</a> | <a href="script_kiddies.html">Script Kiddies</a> | <a href="hacktivists.html">Hacktivists</a> | <a href="state_sponsored.html">State-Sponsored</a> | <a href="insider_threats.html">Insider Threats</a> | <a href="cyber_terrorists.html">Cyber-terrorists</a> | <a href="suicide_hackers.html">Suicide Hackers</a> | <a href="neophytes.html">Neophytes</a>
-</nav>
+
+<header class="page-header">
+    <div class="container main-nav">
+        <a href="../index.html" class="btn-home">⬅ На главную</a>
+        <ul class="nav-links">
+            <li><a href="black_hat.html">Black Hat</a></li>
+            <li><a href="white_hat.html">White Hat</a></li>
+            <li><a href="grey_hat.html">Grey Hat</a></li>
+            <li><a href="script_kiddies.html">Script Kiddies</a></li>
+            <li><a href="hacktivists.html">Hacktivists</a></li>
+            <li><a href="state_sponsored.html">State-Sponsored</a></li>
+            <li><a href="insider_threats.html">Insider Threats</a></li>
+            <li><a href="cyber_terrorists.html">Cyber-terrorists</a></li>
+            <li><a href="suicide_hackers.html">Suicide Hackers</a></li>
+            <li><a href="neophytes.html" class="active">Neophytes</a></li>
+        </ul>
+    </div>
+</header>
+
 <main class="container">
     <h1>Neophytes (Неофиты)</h1>
-    <section>
-        <h2>Определение</h2>
-        <p>Неофиты (или нубы) — это новички в мире хакинга. В отличие от скрипт-кидди, они стремятся к обучению, пониманию принципов работы систем и этическому росту.</p>
+    
+    <section class="info-block">
+        <h2>Определение и суть</h2>
+        <p>К категории «неофитов» (иногда их называют нубами) относятся энтузиасты, делающие свои самые первые шаги в мире кибербезопасности. Их главное отличие от тех же скрипт-кидди заключается в осознанном подходе: они стремятся не просто запустить готовую утилиту, а детально разобраться в том, как работают операционные системы, протоколы сетей и механизмы уязвимостей.</p>
     </section>
-    <section>
-        <h2>Мотивы</h2>
+
+    <section class="info-block">
+        <h2>Ключевые мотивы</h2>
+        <p>Ими движет здоровая любознательность и желание развиваться:</p>
         <ul>
-            <li>Самообразование в сфере ИБ.</li>
-            <li>Поиск своего пути (White, Grey или Black Hat).</li>
-            <li>Интерес к устройству цифрового мира.</li>
+            <li>Глубокое самостоятельное обучение основам ИТ-инфраструктуры.</li>
+            <li>Поиск собственного профессионального пути и выбор будущей «шляпы» (стать этичным исследователем, уйти в серую зону или выбрать теневой сектор).</li>
+            <li>Искренний интерес к скрытому устройству цифрового мира.</li>
         </ul>
     </section>
-    <section>
-        <h2>Методы</h2>
-        <p>Изучение литературы, прохождение CTF-соревнований (Capture The Flag), работа в песочницах и на лабораторных стендах.</p>
+
+    <section class="info-block">
+        <h2>Методы и практика</h2>
+        <p>Свои навыки такие исследователи предпочитают оттачивать легальными способами. Они читают профильную техническую литературу, участвуют в хакерских соревнованиях формата CTF (Capture The Flag) и тренируются во взломе на изолированных лабораторных стендах или специальных учебных виртуальных машинах (так называемых песочницах).</p>
     </section>
-    <section>
-        <h2>Реальный кейс</h2>
-        <p><strong>Путь пентестера:</strong> Большинство известных мировых экспертов по ИБ начинали как неофиты, изучая архитектуру сетей на домашних роутерах и виртуальных машинах.</p>
+
+    <section class="info-block">
+        <h2>Эволюция профессионала</h2>
+        <p><strong>Путь пентестера:</strong> Абсолютно каждый признанный мировой эксперт по кибербезопасности когда-то находился на этапе неофита. Их карьера начиналась с попыток изучить внутреннее устройство собственных домашних роутеров, настройки локальных сетей и первых экспериментов с виртуальными машинами.</p>
     </section>
-    <section>
-        <h2>Этический аспект</h2>
-        <p>На этом этапе закладывается фундамент профессиональной этики. Важно направлять любопытство в легальное русло, чтобы избежать случайного нарушения закона.</p>
+
+    <section class="info-block">
+        <h2>Формирование этики</h2>
+        <p>Именно на этом стартовом этапе закладывается критически важный моральный компас будущего специалиста. Главная задача для новичка — направить свой исследовательский интерес в строго легальное русло, чтобы по незнанию не совершить необдуманных действий, ведущих к уголовной ответственности.</p>
     </section>
 </main>
+
+<footer class="container">
+    <p>&copy; 2026 Лаборатория ИБ. Учебный проект.</p>
+</footer>
+
 </body>
 </html>

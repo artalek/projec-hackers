@@ -4,38 +4,210 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Suicide Hackers — Кодификатор хакеров</title>
-    <link rel="stylesheet" href="../css/style.css">
+    
+    <style>
+        /* =========================================
+           БАЗОВЫЕ СТИЛИ И ТЕМНАЯ ТЕМА
+           ========================================= */
+        body {
+            background-color: #0f1115;
+            color: #c9d1d9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        h1 {
+            color: #4caf50;
+            font-size: 2.2rem;
+            border-bottom: 2px solid #2d313a;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #ffffff;
+            margin-top: 0;
+        }
+
+        p, li {
+            font-size: 1.05rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* =========================================
+           ТЕКСТОВЫЕ БЛОКИ
+           ========================================= */
+        .info-block {
+            background-color: #1a1c23;
+            border: 1px solid #2d313a;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-block ul {
+            padding-left: 20px;
+        }
+
+        .info-block li {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0 20px;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        /* =========================================
+           ШАПКА И МЕНЮ
+           ========================================= */
+        .page-header {
+            background-color: #1a1c23;
+            border-bottom: 1px solid #2d313a;
+            padding: 15px 0;
+            margin-bottom: 40px;
+        }
+
+        .main-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn-home {
+            background-color: #2b2e38;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            border: 1px solid #3c404b;
+            white-space: nowrap;
+        }
+
+        .btn-home:hover {
+            background-color: #3b404d;
+            transform: translateY(-2px);
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .nav-links li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links li a {
+            color: #8b92a5;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+
+        .nav-links li a:hover {
+            background-color: #2b2e38;
+            color: #ffffff;
+        }
+
+        /* Активная вкладка - Suicide Hackers */
+        .nav-links li a.active {
+            background-color: #2e7d32;
+            color: #ffffff;
+            font-weight: bold;
+            box-shadow: 0 0 10px rgba(46, 125, 50, 0.3);
+        }
+
+        @media (min-width: 900px) {
+            .main-nav {
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+            .nav-links {
+                margin-left: auto;
+            }
+        }
+    </style>
 </head>
 <body>
-<nav class="container">
-    <a href="black_hat.html">Black Hat</a> | <a href="white_hat.html">White Hat</a> | <a href="grey_hat.html">Grey Hat</a> | <a href="script_kiddies.html">Script Kiddies</a> | <a href="hacktivists.html">Hacktivists</a> | <a href="state_sponsored.html">State-Sponsored</a> | <a href="insider_threats.html">Insider Threats</a> | <a href="cyber_terrorists.html">Cyber-terrorists</a> | <a href="suicide_hackers.html">Suicide Hackers</a> | <a href="neophytes.html">Neophytes</a>
-</nav>
+
+<header class="page-header">
+    <div class="container main-nav">
+        <a href="../index.html" class="btn-home">⬅ На главную</a>
+        <ul class="nav-links">
+            <li><a href="black_hat.html">Black Hat</a></li>
+            <li><a href="white_hat.html">White Hat</a></li>
+            <li><a href="grey_hat.html">Grey Hat</a></li>
+            <li><a href="script_kiddies.html">Script Kiddies</a></li>
+            <li><a href="hacktivists.html">Hacktivists</a></li>
+            <li><a href="state_sponsored.html">State-Sponsored</a></li>
+            <li><a href="insider_threats.html">Insider Threats</a></li>
+            <li><a href="cyber_terrorists.html">Cyber-terrorists</a></li>
+            <li><a href="suicide_hackers.html" class="active">Suicide Hackers</a></li>
+            <li><a href="neophytes.html">Neophytes</a></li>
+        </ul>
+    </div>
+</header>
+
 <main class="container">
     <h1>Suicide Hackers (Хакеры-смертники)</h1>
-    <section>
-        <h2>Определение</h2>
-        <p>Хакеры-смертники — это лица, совершающие взломы с целью нанести максимальный ущерб, не предпринимая никаких усилий для сокрытия своей личности или ухода от правосудия.</p>
+    
+    <section class="info-block">
+        <h2>Определение: Атака в один конец</h2>
+        <p>В эту уникальную группу входят взломщики, главная цель которых — нанести максимально возможный урон целевой ИТ-инфраструктуре. При этом они принципиально не пытаются скрыть свои цифровые следы, IP-адреса или реальную личность, абсолютно чётко осознавая неизбежность последующего ареста.</p>
     </section>
-    <section>
-        <h2>Мотивы</h2>
+
+    <section class="info-block">
+        <h2>Основные мотивы</h2>
+        <p>Их действия продиктованы крайними формами радикализма или отчаяния:</p>
         <ul>
-            <li>Донесение манифеста или идеи любой ценой.</li>
-            <li>Личная месть, за которой следует готовность понести наказание.</li>
-            <li>Психологическая дестабилизация общества.</li>
+            <li>Стремление любой ценой донести свой идеологический манифест до широких масс.</li>
+            <li>Радикальная личная месть корпорации или государству, при которой исполнитель готов смириться с длительным тюремным сроком.</li>
+            <li>Желание посеять панику и дестабилизировать работу общественных институтов.</li>
         </ul>
     </section>
-    <section>
-        <h2>Методы</h2>
-        <p>Прямые атаки на государственные серверы или трансляции СМИ, часто с использованием личных данных в коде или на дефейс-страницах.</p>
+
+    <section class="info-block">
+        <h2>Специфика методов</h2>
+        <p>Они предпочитают действовать «в лоб», организуя прямые деструктивные атаки на критически важные государственные порталы или эфиры крупных средств массовой информации. Зачастую они намеренно оставляют свои настоящие имена, контактные данные или фотографии прямо в исходном коде вредоносных программ и на взломанных страницах (дефейсах).</p>
     </section>
-    <section>
-        <h2>Реальный кейс</h2>
-        <p><strong>Публичные признания:</strong> Исторически такие случаи редки в чистом виде, но часто встречаются в рамках хактивизма, когда участники открыто заявляют о своей вине в суде, используя процесс как трибуну.</p>
+
+    <section class="info-block">
+        <h2>Реальный кейс: Публичные процессы</h2>
+        <p>В чистом виде такие инциденты происходят довольно редко. Как правило, подобное поведение тесно переплетается с радикальным крылом хактивизма. После совершения атаки участники нередко делают публичные признания, а затем используют открытые судебные заседания как бесплатную трибуну для громкой пропаганды своих взглядов перед журналистами.</p>
     </section>
-    <section>
-        <h2>Этический аспект</h2>
-        <p>Отсутствие самосохранения делает их крайне опасными, так как стандартные методы сдерживания (страх тюрьмы) на них не действуют.</p>
+
+    <section class="info-block">
+        <h2>Этический и правовой аспект</h2>
+        <p>Полное отсутствие инстинкта самосохранения превращает таких акторов в исключительно непредсказуемую и опасную угрозу для ИБ-специалистов. Классические инструменты правового сдерживания — страх перед огромными штрафами или тюрьмой — против них абсолютно неэффективны, так как наказание изначально включено в их план.</p>
     </section>
 </main>
+
+<footer class="container">
+    <p>&copy; 2026 Лаборатория ИБ. Учебный проект.</p>
+</footer>
+
 </body>
 </html>
