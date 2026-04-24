@@ -1,0 +1,496 @@
+/* ================================================
+   extra.css — стили для новой главной и tooltip'ов
+   Подключается ПОСЛЕ style.css, не меняет базовое
+   ================================================ */
+
+/* ---------- Встроенная карта атак ---------- */
+.cyber-map-embed {
+    background: #0a0e17;
+    border: 1px solid #2d313a;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    overflow: hidden;
+    position: relative;
+}
+
+.map-embed-header {
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #2d313a;
+    background: linear-gradient(180deg, #12161d 0%, #0a0e17 100%);
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.map-embed-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #4caf50;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.live-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #ff4466;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #ff4466;
+    animation: livePulse 1.5s infinite;
+}
+
+@keyframes livePulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.map-embed-expand {
+    color: #4caf50;
+    text-decoration: none;
+    padding: 6px 14px;
+    border: 1px solid #4caf50;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.map-embed-expand:hover {
+    background: #4caf50;
+    color: #0f1115;
+}
+
+.map-embed-body {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 0;
+}
+
+.map-svg-wrapper {
+    position: relative;
+    background: #0a0e17;
+    min-height: 360px;
+}
+
+#mini-world-map {
+    width: 100%;
+    height: 360px;
+    display: block;
+}
+
+.map-stats-panel {
+    padding: 16px;
+    background: #0d1420;
+    border-left: 1px solid #2d313a;
+    font-family: 'Courier New', monospace;
+}
+
+.mini-stat {
+    margin-bottom: 14px;
+}
+
+.mini-stat-label {
+    font-size: 0.7rem;
+    color: #6a7a8c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+}
+
+.mini-stat-value {
+    font-size: 1.4rem;
+    color: #4caf50;
+    font-weight: 500;
+}
+
+.mini-stat-value.red { color: #ff4466; }
+.mini-stat-value.amber { color: #ffaa00; }
+
+.mini-log {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid #2d313a;
+    font-size: 0.7rem;
+    max-height: 140px;
+    overflow: hidden;
+}
+
+.mini-log-title {
+    color: #6a7a8c;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.mini-log-entry {
+    color: #8b92a5;
+    padding: 4px 0 4px 8px;
+    animation: logSlide 0.4s ease-out;
+    border-left: 2px solid #4caf50;
+    margin-bottom: 4px;
+    line-height: 1.3;
+}
+
+.mini-log-entry.ddos { border-left-color: #ff4466; }
+.mini-log-entry.malware { border-left-color: #ffaa00; }
+.mini-log-entry.ransom { border-left-color: #ff00ff; }
+
+@keyframes logSlide {
+    from { opacity: 0; transform: translateX(10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 700px) {
+    .map-embed-body { grid-template-columns: 1fr; }
+    .map-stats-panel { border-left: none; border-top: 1px solid #2d313a; }
+    #mini-world-map { height: 260px; }
+}
+
+/* ---------- Цифры-шокеры ---------- */
+.shocker-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.shocker-card {
+    background: #1a1c23;
+    border: 1px solid #2d313a;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.shocker-card:hover {
+    border-color: #4caf50;
+    transform: translateY(-3px);
+}
+
+.shocker-num {
+    display: block;
+    font-size: 1.8rem;
+    color: #4caf50;
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-family: 'Courier New', monospace;
+}
+
+.shocker-num.red { color: #ff4466; }
+.shocker-num.amber { color: #ffaa00; }
+
+.shocker-desc {
+    font-size: 0.85rem;
+    color: #8b92a5;
+    line-height: 1.4;
+}
+
+/* ---------- Учебная траектория ---------- */
+.learning-path {
+    background: linear-gradient(180deg, #161920 0%, #1a1c23 100%);
+    border: 1px solid #2d313a;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 40px;
+}
+
+.learning-path-title {
+    text-align: center;
+    margin-bottom: 8px;
+    font-size: 1.8rem;
+    color: #4caf50;
+}
+
+.learning-path-subtitle {
+    text-align: center;
+    color: #8b92a5;
+    margin-bottom: 25px;
+    font-size: 1rem;
+}
+
+.progress-overall {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    font-size: 0.9rem;
+    color: #8b92a5;
+}
+
+.progress-overall-bar {
+    flex: 1;
+    height: 8px;
+    background: #0f1115;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #2d313a;
+}
+
+.progress-overall-fill {
+    height: 100%;
+    background: #4caf50;
+    width: 0%;
+    transition: width 0.6s ease;
+}
+
+.progress-percent {
+    color: #4caf50;
+    font-weight: 700;
+    min-width: 44px;
+    text-align: right;
+    font-family: 'Courier New', monospace;
+}
+
+.level-card {
+    background: #0f1115;
+    border: 1px solid #2d313a;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.level-card.level-1 { border-left: 4px solid #4caf50; }
+.level-card.level-2 { border-left: 4px solid #ffaa00; }
+.level-card.level-3 { border-left: 4px solid #ff4466; }
+
+.level-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 22px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.level-title-block {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.level-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    font-family: 'Courier New', monospace;
+    border: 2px solid;
+    flex-shrink: 0;
+}
+
+.level-1 .level-badge { color: #4caf50; border-color: #4caf50; background: rgba(76, 175, 80, 0.1); }
+.level-2 .level-badge { color: #ffaa00; border-color: #ffaa00; background: rgba(255, 170, 0, 0.1); }
+.level-3 .level-badge { color: #ff4466; border-color: #ff4466; background: rgba(255, 68, 102, 0.1); }
+
+.level-info h3 {
+    margin: 0 0 4px 0;
+    font-size: 1.1rem;
+    color: #c9d1d9;
+}
+
+.level-info p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #8b92a5;
+}
+
+.level-progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: #8b92a5;
+    font-family: 'Courier New', monospace;
+}
+
+.level-progress-bar {
+    width: 100px;
+    height: 6px;
+    background: #2d313a;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.level-progress-fill {
+    height: 100%;
+    transition: width 0.5s ease;
+    width: 0%;
+}
+
+.level-1 .level-progress-fill { background: #4caf50; }
+.level-2 .level-progress-fill { background: #ffaa00; }
+.level-3 .level-progress-fill { background: #ff4466; }
+
+.level-steps {
+    padding: 0 22px 18px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 10px;
+}
+
+.step-card {
+    background: #1a1c23;
+    border: 1px solid #2d313a;
+    border-radius: 8px;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.2s;
+}
+
+.step-card:hover {
+    border-color: #4caf50;
+    transform: translateX(3px);
+}
+
+.step-card.completed {
+    border-color: #4caf50;
+    background: rgba(76, 175, 80, 0.08);
+}
+
+.step-check {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid #2d313a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+    transition: all 0.3s;
+}
+
+.step-card.completed .step-check {
+    background: #4caf50;
+    border-color: #4caf50;
+    color: #0f1115;
+}
+
+.step-card.completed .step-check::before {
+    content: "✓";
+    font-weight: 700;
+}
+
+.step-name {
+    font-size: 0.9rem;
+    color: #c9d1d9;
+    font-weight: 500;
+}
+
+.step-card.completed .step-name { color: #4caf50; }
+
+.reset-progress {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.reset-progress button {
+    background: transparent;
+    border: 1px solid #2d313a;
+    color: #6b7280;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s;
+}
+
+.reset-progress button:hover {
+    border-color: #ff4466;
+    color: #ff4466;
+}
+
+/* ---------- Специальные карточки ---------- */
+.card-special {
+    border-color: #4caf50 !important;
+    background: linear-gradient(135deg, #1a1c23 0%, #1a2a22 100%) !important;
+}
+
+.catalog-intro {
+    text-align: center;
+    color: #8b92a5;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+/* ================================================
+   АВТОМАТИЧЕСКИЕ ТУЛТИПЫ (auto-tooltip)
+   Работают на ВСЕХ страницах, куда подключён tooltips.js
+   ================================================ */
+.auto-term {
+    color: #4caf50;
+    border-bottom: 1px dashed #4caf50;
+    cursor: help;
+    position: relative;
+    transition: color 0.2s;
+}
+
+.auto-term:hover {
+    color: #66d16a;
+    background: rgba(76, 175, 80, 0.08);
+}
+
+.auto-tooltip {
+    position: absolute;
+    z-index: 10000;
+    background: #1a1c23;
+    border: 1px solid #4caf50;
+    border-radius: 8px;
+    padding: 14px 16px;
+    max-width: 340px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: #c9d1d9;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.2s, transform 0.2s;
+    font-weight: normal;
+}
+
+.auto-tooltip.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.auto-tooltip-title {
+    color: #4caf50;
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #2d313a;
+    padding-bottom: 6px;
+}
+
+.auto-tooltip-def {
+    margin-bottom: 8px;
+}
+
+.auto-tooltip-link {
+    display: inline-block;
+    margin-top: 4px;
+    color: #4caf50;
+    font-size: 0.78rem;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+.auto-tooltip-link:hover { opacity: 1; }
