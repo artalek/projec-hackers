@@ -1,0 +1,509 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Живая карта кибератак — Классификация хакеров</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon"></div>
+      <div class="logo-text">
+        <h1>CYBER THREAT MAP</h1>
+        <p>Живая карта кибератак</p>
+      </div>
+    </div>
+    <div class="status-bar">
+      <span><span class="status-dot"></span>СИСТЕМА АКТИВНА</span>
+      <span id="current-time">--:--:--</span>
+    </div>
+    <a href="../index.html" class="back-link">⬅ На главную</a>
+  </div>
+</header>
+
+<div class="main">
+
+  <!-- Левая панель — счётчики -->
+  <aside class="panel">
+    <div class="panel-title">📊 Статистика</div>
+
+    <div class="stat-card">
+      <div class="stat-label">Атак за сессию</div>
+      <div class="stat-value red" id="total-attacks">0</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-label">Активных сейчас</div>
+      <div class="stat-value amber" id="active-attacks">0</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-label">Заблокировано</div>
+      <div class="stat-value green" id="blocked-attacks">0</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-label">Ущерб (сессия, $)</div>
+      <div class="stat-value red" id="damage">0</div>
+    </div>
+
+    <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #1a2a3e;">
+      <div class="panel-title" style="border: none; padding: 0; margin-bottom: 10px;">🎯 Типы атак</div>
+      <div style="font-size: 11px; color: #8fa5bd; line-height: 1.8;">
+        <div><span style="color: #ff4466;">■</span> DDoS — <span id="count-ddos">0</span></div>
+        <div><span style="color: #ffaa00;">■</span> Malware — <span id="count-malware">0</span></div>
+        <div><span style="color: #00d4ff;">■</span> Phishing — <span id="count-phishing">0</span></div>
+        <div><span style="color: #ff00ff;">■</span> Ransomware — <span id="count-ransom">0</span></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Центр — карта -->
+  <div class="map-container">
+    <div class="map-header">
+      <div class="map-title">◉ Мониторинг в реальном времени</div>
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot ddos"></div>DDoS</div>
+        <div class="legend-item"><div class="legend-dot malware"></div>Malware</div>
+        <div class="legend-item"><div class="legend-dot phishing"></div>Phishing</div>
+        <div class="legend-item"><div class="legend-dot ransom"></div>Ransom</div>
+      </div>
+    </div>
+    <svg id="world-map" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+      <!-- Сетка-координаты как у радара -->
+      <defs>
+        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#00d4ff" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
+        </radialGradient>
+        <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+          <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#1a2a3e" stroke-width="0.5"/>
+        </pattern>
+      </defs>
+      <rect width="1000" height="500" fill="url(#grid)"/>
+
+      <!-- Упрощённые контуры континентов (стилизованные пиксельные блоки) -->
+      <g id="continents" fill="#1a2e4a" stroke="#2a4a6e" stroke-width="0.5" opacity="0.8">
+        <!-- Северная Америка -->
+        <path d="M 80 80 L 180 70 L 240 90 L 260 140 L 240 200 L 180 240 L 120 230 L 90 180 L 70 130 Z"/>
+        <!-- Южная Америка -->
+        <path d="M 240 260 L 290 270 L 310 320 L 290 390 L 260 420 L 230 400 L 220 340 L 225 290 Z"/>
+        <!-- Европа -->
+        <path d="M 460 100 L 540 90 L 560 120 L 550 160 L 510 180 L 470 170 L 450 140 Z"/>
+        <!-- Африка -->
+        <path d="M 480 200 L 560 195 L 580 240 L 570 320 L 530 380 L 490 370 L 470 310 L 465 250 Z"/>
+        <!-- Россия/Азия (большая) -->
+        <path d="M 560 80 L 780 70 L 860 100 L 880 150 L 840 200 L 780 210 L 720 190 L 650 200 L 580 170 L 560 120 Z"/>
+        <!-- Юго-Восточная Азия / Индия -->
+        <path d="M 680 220 L 760 230 L 780 270 L 750 310 L 700 300 L 680 260 Z"/>
+        <!-- Австралия -->
+        <path d="M 800 340 L 880 330 L 900 370 L 870 400 L 820 395 L 800 370 Z"/>
+        <!-- Великобритания -->
+        <path d="M 445 130 L 460 128 L 465 145 L 450 150 Z"/>
+        <!-- Япония -->
+        <path d="M 870 180 L 885 175 L 890 195 L 878 210 Z"/>
+      </g>
+
+      <!-- Здесь появятся точки-столицы и линии атак -->
+      <g id="cities"></g>
+      <g id="attack-lines"></g>
+      <g id="explosions"></g>
+    </svg>
+  </div>
+
+  <!-- Правая панель — лог + топ -->
+  <aside class="panel">
+    <div class="panel-title">⚡ Топ атакующих стран</div>
+    <div class="top-list" id="top-attackers"></div>
+
+    <div class="panel-title" style="margin-top: 24px;">🎯 Топ жертв</div>
+    <div class="top-list" id="top-targets"></div>
+
+    <div class="panel-title" style="margin-top: 24px;">📡 Лог событий</div>
+    <div class="attack-log" id="log"></div>
+  </aside>
+
+</div>
+
+<!-- Информационный блок-пояснение -->
+<div class="info-footer">
+  <div class="panel">
+    <div class="panel-title">ℹ О карте</div>
+    <p>
+      Данная карта — <strong>учебная симуляция</strong> для демонстрации глобального масштаба киберугроз.
+      Она показывает, что в каждый момент времени тысячи атак идут по всему миру: одни страны атакуют,
+      другие защищаются, а современный ИБ-специалист должен понимать эту картину целиком.
+    </p>
+    <p style="margin-top: 10px;">
+      <strong>Типы атак на карте:</strong> DDoS (отказ в обслуживании), Malware (вредоносное ПО),
+      Phishing (фишинг), Ransomware (вымогательское ПО). Подробности о каждом типе — на страницах сайта.
+      Термины, которые непонятны, можно найти в <strong>глоссарии</strong>.
+    </p>
+  </div>
+</div>
+
+<script>
+  // ========== СПИСОК СТРАН С КООРДИНАТАМИ ==========
+  // Координаты на карте viewBox 1000x500 (не географические)
+  const countries = [
+    { code: "US", name: "США",          x: 180, y: 150, flag: "🇺🇸" },
+    { code: "CN", name: "Китай",        x: 780, y: 170, flag: "🇨🇳" },
+    { code: "RU", name: "Россия",       x: 650, y: 110, flag: "🇷🇺" },
+    { code: "DE", name: "Германия",     x: 500, y: 130, flag: "🇩🇪" },
+    { code: "GB", name: "Великобритания", x: 455, y: 138, flag: "🇬🇧" },
+    { code: "FR", name: "Франция",      x: 480, y: 150, flag: "🇫🇷" },
+    { code: "KR", name: "Южная Корея",  x: 830, y: 180, flag: "🇰🇷" },
+    { code: "JP", name: "Япония",       x: 878, y: 192, flag: "🇯🇵" },
+    { code: "IN", name: "Индия",        x: 720, y: 255, flag: "🇮🇳" },
+    { code: "BR", name: "Бразилия",     x: 270, y: 340, flag: "🇧🇷" },
+    { code: "AU", name: "Австралия",    x: 840, y: 370, flag: "🇦🇺" },
+    { code: "CA", name: "Канада",       x: 160, y: 100, flag: "🇨🇦" },
+    { code: "IR", name: "Иран",         x: 620, y: 200, flag: "🇮🇷" },
+    { code: "UA", name: "Украина",      x: 560, y: 135, flag: "🇺🇦" },
+    { code: "IL", name: "Израиль",      x: 570, y: 195, flag: "🇮🇱" },
+    { code: "KP", name: "КНДР",         x: 820, y: 170, flag: "🇰🇵" },
+    { code: "NL", name: "Нидерланды",   x: 490, y: 125, flag: "🇳🇱" },
+    { code: "SG", name: "Сингапур",     x: 760, y: 300, flag: "🇸🇬" },
+    { code: "ZA", name: "ЮАР",          x: 520, y: 380, flag: "🇿🇦" },
+    { code: "MX", name: "Мексика",      x: 160, y: 210, flag: "🇲🇽" }
+  ];
+
+  const attackTypes = [
+    { code: "ddos",     name: "DDoS",       color: "#ff4466" },
+    { code: "malware",  name: "MALWARE",    color: "#ffaa00" },
+    { code: "phishing", name: "PHISHING",   color: "#00d4ff" },
+    { code: "ransom",   name: "RANSOMWARE", color: "#ff00ff" }
+  ];
+
+  // Веса агрессоров — по данным отчётов ИБ-компаний, некоторые страны чаще источники
+  const attackerWeights = {
+    "CN": 25, "RU": 22, "US": 18, "KP": 12, "IR": 10,
+    "UA": 6, "IN": 6, "BR": 5, "DE": 4, "FR": 3,
+    "GB": 3, "KR": 3, "JP": 2, "NL": 3, "CA": 2,
+    "IL": 3, "SG": 2, "AU": 2, "ZA": 1, "MX": 2
+  };
+  // Жертвы — развитые экономики
+  const targetWeights = {
+    "US": 30, "DE": 12, "GB": 10, "FR": 8, "JP": 8,
+    "KR": 7, "CA": 6, "AU": 5, "NL": 5, "IL": 4,
+    "SG": 4, "BR": 4, "IN": 5, "MX": 3, "ZA": 2,
+    "CN": 8, "RU": 5, "UA": 10, "IR": 3, "KP": 1
+  };
+
+  // ========== РИСУЕМ ГОРОДА-ТОЧКИ ==========
+  const citiesLayer = document.getElementById("cities");
+  countries.forEach(c => {
+    const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    dot.setAttribute("cx", c.x);
+    dot.setAttribute("cy", c.y);
+    dot.setAttribute("r", 3);
+    dot.setAttribute("fill", "#00d4ff");
+    dot.setAttribute("opacity", "0.8");
+    citiesLayer.appendChild(dot);
+
+    const label = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    label.setAttribute("x", c.x + 6);
+    label.setAttribute("y", c.y + 3);
+    label.setAttribute("font-size", "9");
+    label.setAttribute("fill", "#6a8aad");
+    label.setAttribute("font-family", "Courier New, monospace");
+    label.textContent = c.code;
+    citiesLayer.appendChild(label);
+  });
+
+  // ========== ГЕНЕРАЦИЯ АТАК ==========
+  let totalAttacks = 0;
+  let activeAttacks = 0;
+  let blockedAttacks = 0;
+  let damage = 0;
+  const typeCounts = { ddos: 0, malware: 0, phishing: 0, ransom: 0 };
+  const attackerCounts = {};
+  const targetCounts = {};
+
+  function weightedRandom(weights) {
+    const total = Object.values(weights).reduce((a, b) => a + b, 0);
+    let r = Math.random() * total;
+    for (const [code, w] of Object.entries(weights)) {
+      r -= w;
+      if (r <= 0) return code;
+    }
+    return Object.keys(weights)[0];
+  }
+
+  function getCountry(code) {
+    return countries.find(c => c.code === code);
+  }
+
+  function createAttack() {
+    const fromCode = weightedRandom(attackerWeights);
+    let toCode = weightedRandom(targetWeights);
+    // Не атаковать саму себя
+    while (toCode === fromCode) toCode = weightedRandom(targetWeights);
+
+    const from = getCountry(fromCode);
+    const to = getCountry(toCode);
+    const type = attackTypes[Math.floor(Math.random() * attackTypes.length)];
+
+    drawAttackLine(from, to, type);
+    logAttack(from, to, type);
+    updateStats(type, fromCode, toCode);
+  }
+
+  function drawAttackLine(from, to, type) {
+    const linesLayer = document.getElementById("attack-lines");
+    const explosionsLayer = document.getElementById("explosions");
+
+    // Дуга — квадратичная Безье для эффекта траектории
+    const mx = (from.x + to.x) / 2;
+    const my = (from.y + to.y) / 2 - Math.abs(from.x - to.x) * 0.25;
+
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    const d = `M ${from.x} ${from.y} Q ${mx} ${my} ${to.x} ${to.y}`;
+    path.setAttribute("d", d);
+    path.setAttribute("stroke", type.color);
+    path.setAttribute("stroke-width", "1.5");
+    path.setAttribute("fill", "none");
+    path.setAttribute("opacity", "0");
+    path.setAttribute("stroke-dasharray", "5,3");
+
+    const length = path.getTotalLength ? 600 : 600;
+    path.style.strokeDasharray = length;
+    path.style.strokeDashoffset = length;
+    path.style.transition = "stroke-dashoffset 1.5s linear, opacity 0.3s";
+
+    linesLayer.appendChild(path);
+
+    // Запуск анимации
+    requestAnimationFrame(() => {
+      path.setAttribute("opacity", "0.9");
+      path.style.strokeDashoffset = 0;
+    });
+
+    // «Снаряд» — маленькая точка летит по пути
+    const projectile = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    projectile.setAttribute("r", 3);
+    projectile.setAttribute("fill", type.color);
+    projectile.setAttribute("filter", `drop-shadow(0 0 4px ${type.color})`);
+    linesLayer.appendChild(projectile);
+
+    // Анимация по пути
+    animateAlongPath(projectile, from, { x: mx, y: my }, to, 1500, () => {
+      projectile.remove();
+      // Взрыв в точке назначения
+      explode(to.x, to.y, type.color, explosionsLayer);
+    });
+
+    // Линия исчезает через 2 сек
+    setTimeout(() => {
+      path.style.transition = "opacity 0.6s";
+      path.setAttribute("opacity", "0");
+      setTimeout(() => path.remove(), 600);
+    }, 2000);
+
+    // Пинг в начальной точке
+    pingOrigin(from.x, from.y, type.color, explosionsLayer);
+  }
+
+  function animateAlongPath(elem, p0, p1, p2, duration, onEnd) {
+    const start = performance.now();
+    function step(now) {
+      const t = Math.min((now - start) / duration, 1);
+      // Квадратичная Безье
+      const x = (1-t)*(1-t)*p0.x + 2*(1-t)*t*p1.x + t*t*p2.x;
+      const y = (1-t)*(1-t)*p0.y + 2*(1-t)*t*p1.y + t*t*p2.y;
+      elem.setAttribute("cx", x);
+      elem.setAttribute("cy", y);
+      if (t < 1) requestAnimationFrame(step);
+      else if (onEnd) onEnd();
+    }
+    requestAnimationFrame(step);
+  }
+
+  function pingOrigin(x, y, color, layer) {
+    const ring = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    ring.setAttribute("cx", x);
+    ring.setAttribute("cy", y);
+    ring.setAttribute("r", 2);
+    ring.setAttribute("fill", "none");
+    ring.setAttribute("stroke", color);
+    ring.setAttribute("stroke-width", "1.5");
+    ring.setAttribute("opacity", "1");
+    layer.appendChild(ring);
+
+    const start = performance.now();
+    function step(now) {
+      const t = Math.min((now - start) / 800, 1);
+      ring.setAttribute("r", 2 + t * 15);
+      ring.setAttribute("opacity", 1 - t);
+      if (t < 1) requestAnimationFrame(step);
+      else ring.remove();
+    }
+    requestAnimationFrame(step);
+  }
+
+  function explode(x, y, color, layer) {
+    // Центральная вспышка
+    const flash = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    flash.setAttribute("cx", x);
+    flash.setAttribute("cy", y);
+    flash.setAttribute("r", 4);
+    flash.setAttribute("fill", color);
+    layer.appendChild(flash);
+
+    // Расходящиеся круги
+    for (let i = 0; i < 2; i++) {
+      const ring = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      ring.setAttribute("cx", x);
+      ring.setAttribute("cy", y);
+      ring.setAttribute("r", 3);
+      ring.setAttribute("fill", "none");
+      ring.setAttribute("stroke", color);
+      ring.setAttribute("stroke-width", "1.5");
+      layer.appendChild(ring);
+
+      setTimeout(() => {
+        const start = performance.now();
+        function step(now) {
+          const t = Math.min((now - start) / 1000, 1);
+          ring.setAttribute("r", 3 + t * 20);
+          ring.setAttribute("opacity", 1 - t);
+          if (t < 1) requestAnimationFrame(step);
+          else ring.remove();
+        }
+        requestAnimationFrame(step);
+      }, i * 200);
+    }
+
+    // Флэш исчезает
+    setTimeout(() => {
+      flash.style.transition = "opacity 0.5s, r 0.5s";
+      flash.setAttribute("r", 10);
+      flash.setAttribute("opacity", 0);
+      setTimeout(() => flash.remove(), 500);
+    }, 100);
+  }
+
+  // ========== ЛОГ ==========
+  const logEl = document.getElementById("log");
+  const MAX_LOG = 25;
+
+  function logAttack(from, to, type) {
+    const entry = document.createElement("div");
+    entry.className = "log-entry " + type.code;
+    const time = new Date().toLocaleTimeString("ru-RU");
+    entry.innerHTML = `
+      <span class="log-time">[${time}]</span>
+      <span class="log-type ${type.code}">${type.name}</span><br>
+      <span class="log-route">${from.flag} ${from.code} → ${to.flag} ${to.code}</span>
+    `;
+    logEl.prepend(entry);
+    while (logEl.children.length > MAX_LOG) {
+      logEl.removeChild(logEl.lastChild);
+    }
+  }
+
+  // ========== СТАТИСТИКА ==========
+  function updateStats(type, fromCode, toCode) {
+    totalAttacks++;
+    activeAttacks++;
+    typeCounts[type.code]++;
+
+    // ~70% блокируется
+    if (Math.random() < 0.7) {
+      blockedAttacks++;
+    } else {
+      // Ущерб
+      const dmg = Math.floor(Math.random() * 50000) + 5000;
+      damage += dmg;
+    }
+
+    attackerCounts[fromCode] = (attackerCounts[fromCode] || 0) + 1;
+    targetCounts[toCode] = (targetCounts[toCode] || 0) + 1;
+
+    // Активные атаки «завершаются» через 2 сек
+    setTimeout(() => { activeAttacks = Math.max(0, activeAttacks - 1); renderStats(); }, 2000);
+
+    renderStats();
+    renderTop();
+  }
+
+  function renderStats() {
+    document.getElementById("total-attacks").textContent = totalAttacks.toLocaleString("ru-RU");
+    document.getElementById("active-attacks").textContent = activeAttacks;
+    document.getElementById("blocked-attacks").textContent = blockedAttacks.toLocaleString("ru-RU");
+    document.getElementById("damage").textContent = damage.toLocaleString("ru-RU");
+    document.getElementById("count-ddos").textContent = typeCounts.ddos;
+    document.getElementById("count-malware").textContent = typeCounts.malware;
+    document.getElementById("count-phishing").textContent = typeCounts.phishing;
+    document.getElementById("count-ransom").textContent = typeCounts.ransom;
+  }
+
+  function renderTop() {
+    const topAttackers = Object.entries(attackerCounts)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 6);
+    const topTargets = Object.entries(targetCounts)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 6);
+
+    document.getElementById("top-attackers").innerHTML = topAttackers
+      .map(([code, count], i) => {
+        const c = getCountry(code);
+        return `<div class="top-item">
+          <span><span class="top-rank">${String(i+1).padStart(2, "0")}</span>${c.flag} ${c.name}</span>
+          <span class="top-count">${count}</span>
+        </div>`;
+      }).join("") || '<div style="color:#6a7a8c; font-size:11px; padding:8px 0;">Ожидание данных...</div>';
+
+    document.getElementById("top-targets").innerHTML = topTargets
+      .map(([code, count], i) => {
+        const c = getCountry(code);
+        return `<div class="top-item">
+          <span><span class="top-rank">${String(i+1).padStart(2, "0")}</span>${c.flag} ${c.name}</span>
+          <span class="top-count">${count}</span>
+        </div>`;
+      }).join("") || '<div style="color:#6a7a8c; font-size:11px; padding:8px 0;">Ожидание данных...</div>';
+  }
+
+  // ========== ЧАСЫ ==========
+  function updateClock() {
+    const t = new Date();
+    document.getElementById("current-time").textContent =
+      t.toLocaleTimeString("ru-RU") + " UTC";
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+
+  // ========== СТАРТ ==========
+  // Первая волна сразу
+  for (let i = 0; i < 3; i++) {
+    setTimeout(createAttack, i * 300);
+  }
+
+  // Постоянная генерация: каждые 700-1500 мс
+  function scheduleNext() {
+    const delay = 700 + Math.random() * 800;
+    setTimeout(() => {
+      createAttack();
+      scheduleNext();
+    }, delay);
+  }
+  scheduleNext();
+
+  // Иногда — «волна» из нескольких атак подряд
+  setInterval(() => {
+    if (Math.random() < 0.3) {
+      const burst = 3 + Math.floor(Math.random() * 4);
+      for (let i = 0; i < burst; i++) {
+        setTimeout(createAttack, i * 150);
+      }
+    }
+  }, 8000);
+</script>
+
+</body>
+</html>
