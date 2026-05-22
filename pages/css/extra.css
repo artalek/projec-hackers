@@ -5,8 +5,8 @@
 
 /* ---------- Встроенная карта атак ---------- */
 .cyber-map-embed {
-    background: #0a0e17;
-    border: 1px solid #2d313a;
+    background: #0a0e1a;
+    border: 1px solid #1e3050;
     border-radius: 12px;
     margin-bottom: 40px;
     overflow: hidden;
@@ -18,8 +18,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #2d313a;
-    background: linear-gradient(180deg, #12161d 0%, #0a0e17 100%);
+    border-bottom: 1px solid #1e3050;
+    background: linear-gradient(180deg, #12161d 0%, #0a0e1a 100%);
     flex-wrap: wrap;
     gap: 10px;
 }
@@ -28,7 +28,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #4caf50;
+    color: #00ff88;
     font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -51,17 +51,17 @@
 }
 
 .map-embed-expand {
-    color: #4caf50;
+    color: #00ff88;
     text-decoration: none;
     padding: 6px 14px;
-    border: 1px solid #4caf50;
+    border: 1px solid #00ff88;
     border-radius: 4px;
     font-size: 0.85rem;
     transition: all 0.2s;
 }
 
 .map-embed-expand:hover {
-    background: #4caf50;
+    background: #00ff88;
     color: #0f1115;
 }
 
@@ -73,7 +73,7 @@
 
 .map-svg-wrapper {
     position: relative;
-    background: #0a0e17;
+    background: #0a0e1a;
     min-height: 360px;
 }
 
@@ -85,8 +85,8 @@
 
 .map-stats-panel {
     padding: 16px;
-    background: #0d1420;
-    border-left: 1px solid #2d313a;
+    background: #0d1524;
+    border-left: 1px solid #1e3050;
     font-family: 'Courier New', monospace;
 }
 
@@ -104,7 +104,7 @@
 
 .mini-stat-value {
     font-size: 1.4rem;
-    color: #4caf50;
+    color: #00ff88;
     font-weight: 500;
 }
 
@@ -114,7 +114,7 @@
 .mini-log {
     margin-top: 18px;
     padding-top: 14px;
-    border-top: 1px solid #2d313a;
+    border-top: 1px solid #1e3050;
     font-size: 0.7rem;
     max-height: 140px;
     overflow: hidden;
@@ -131,7 +131,7 @@
     color: #8b92a5;
     padding: 4px 0 4px 8px;
     animation: logSlide 0.4s ease-out;
-    border-left: 2px solid #4caf50;
+    border-left: 2px solid #00ff88;
     margin-bottom: 4px;
     line-height: 1.3;
 }
@@ -147,7 +147,7 @@
 
 @media (max-width: 700px) {
     .map-embed-body { grid-template-columns: 1fr; }
-    .map-stats-panel { border-left: none; border-top: 1px solid #2d313a; }
+    .map-stats-panel { border-left: none; border-top: 1px solid #1e3050; }
     #mini-world-map { height: 260px; }
 }
 
@@ -160,8 +160,8 @@
 }
 
 .shocker-card {
-    background: #1a1c23;
-    border: 1px solid #2d313a;
+    background: #141e33;
+    border: 1px solid #1e3050;
     border-radius: 10px;
     padding: 20px;
     text-align: center;
@@ -169,14 +169,14 @@
 }
 
 .shocker-card:hover {
-    border-color: #4caf50;
+    border-color: #00ff88;
     transform: translateY(-3px);
 }
 
 .shocker-num {
     display: block;
     font-size: 1.8rem;
-    color: #4caf50;
+    color: #00ff88;
     font-weight: 700;
     margin-bottom: 6px;
     font-family: 'Courier New', monospace;
@@ -193,8 +193,8 @@
 
 /* ---------- Учебная траектория ---------- */
 .learning-path {
-    background: linear-gradient(180deg, #161920 0%, #1a1c23 100%);
-    border: 1px solid #2d313a;
+    background: linear-gradient(180deg, #0d1524 0%, #0f1729 100%);
+    border: 1px solid #1e3050;
     border-radius: 12px;
     padding: 30px;
     margin-bottom: 40px;
@@ -204,7 +204,7 @@
     text-align: center;
     margin-bottom: 8px;
     font-size: 1.8rem;
-    color: #4caf50;
+    color: #00ff88;
 }
 
 .learning-path-subtitle {
@@ -230,18 +230,18 @@
     background: #0f1115;
     border-radius: 4px;
     overflow: hidden;
-    border: 1px solid #2d313a;
+    border: 1px solid #1e3050;
 }
 
 .progress-overall-fill {
     height: 100%;
-    background: #4caf50;
+    background: #00ff88;
     width: 0%;
     transition: width 0.6s ease;
 }
 
 .progress-percent {
-    color: #4caf50;
+    color: #00ff88;
     font-weight: 700;
     min-width: 44px;
     text-align: right;
@@ -249,15 +249,15 @@
 }
 
 .level-card {
-    background: #0f1115;
-    border: 1px solid #2d313a;
+    background: #0a0e1a;
+    border: 1px solid #1e3050;
     border-radius: 10px;
     margin-bottom: 18px;
     overflow: hidden;
     transition: all 0.3s;
 }
 
-.level-card.level-1 { border-left: 4px solid #4caf50; }
+.level-card.level-1 { border-left: 4px solid #00ff88; }
 .level-card.level-2 { border-left: 4px solid #ffaa00; }
 .level-card.level-3 { border-left: 4px solid #ff4466; }
 
@@ -290,7 +290,7 @@
     flex-shrink: 0;
 }
 
-.level-1 .level-badge { color: #4caf50; border-color: #4caf50; background: rgba(76, 175, 80, 0.1); }
+.level-1 .level-badge { color: #00ff88; border-color: #00ff88; background: rgba(0, 255, 136, 0.1); }
 .level-2 .level-badge { color: #ffaa00; border-color: #ffaa00; background: rgba(255, 170, 0, 0.1); }
 .level-3 .level-badge { color: #ff4466; border-color: #ff4466; background: rgba(255, 68, 102, 0.1); }
 
@@ -318,7 +318,7 @@
 .level-progress-bar {
     width: 100px;
     height: 6px;
-    background: #2d313a;
+    background: #1e3050;
     border-radius: 3px;
     overflow: hidden;
 }
@@ -329,7 +329,7 @@
     width: 0%;
 }
 
-.level-1 .level-progress-fill { background: #4caf50; }
+.level-1 .level-progress-fill { background: #00ff88; }
 .level-2 .level-progress-fill { background: #ffaa00; }
 .level-3 .level-progress-fill { background: #ff4466; }
 
@@ -341,8 +341,8 @@
 }
 
 .step-card {
-    background: #1a1c23;
-    border: 1px solid #2d313a;
+    background: #141e33;
+    border: 1px solid #1e3050;
     border-radius: 8px;
     padding: 14px 16px;
     text-decoration: none;
@@ -354,20 +354,20 @@
 }
 
 .step-card:hover {
-    border-color: #4caf50;
+    border-color: #00ff88;
     transform: translateX(3px);
 }
 
 .step-card.completed {
-    border-color: #4caf50;
-    background: rgba(76, 175, 80, 0.08);
+    border-color: #00ff88;
+    background: rgba(0, 255, 136, 0.08);
 }
 
 .step-check {
     width: 22px;
     height: 22px;
     border-radius: 50%;
-    border: 2px solid #2d313a;
+    border: 2px solid #1e3050;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -377,8 +377,8 @@
 }
 
 .step-card.completed .step-check {
-    background: #4caf50;
-    border-color: #4caf50;
+    background: #00ff88;
+    border-color: #00ff88;
     color: #0f1115;
 }
 
@@ -393,7 +393,7 @@
     font-weight: 500;
 }
 
-.step-card.completed .step-name { color: #4caf50; }
+.step-card.completed .step-name { color: #00ff88; }
 
 .reset-progress {
     margin-top: 15px;
@@ -402,7 +402,7 @@
 
 .reset-progress button {
     background: transparent;
-    border: 1px solid #2d313a;
+    border: 1px solid #1e3050;
     color: #6b7280;
     padding: 6px 14px;
     border-radius: 4px;
@@ -419,8 +419,8 @@
 
 /* ---------- Специальные карточки ---------- */
 .card-special {
-    border-color: #4caf50 !important;
-    background: linear-gradient(135deg, #1a1c23 0%, #1a2a22 100%) !important;
+    border-color: #00ff88 !important;
+    background: linear-gradient(135deg, #141e33 0%, #1a2a22 100%) !important;
 }
 
 .catalog-intro {
@@ -435,8 +435,8 @@
    Работают на ВСЕХ страницах, куда подключён tooltips.js
    ================================================ */
 .auto-term {
-    color: #4caf50;
-    border-bottom: 1px dashed #4caf50;
+    color: #00ff88;
+    border-bottom: 1px dashed #00ff88;
     cursor: help;
     position: relative;
     transition: color 0.2s;
@@ -444,14 +444,14 @@
 
 .auto-term:hover {
     color: #66d16a;
-    background: rgba(76, 175, 80, 0.08);
+    background: rgba(0, 255, 136, 0.08);
 }
 
 .auto-tooltip {
     position: absolute;
     z-index: 10000;
-    background: #1a1c23;
-    border: 1px solid #4caf50;
+    background: #141e33;
+    border: 1px solid #00ff88;
     border-radius: 8px;
     padding: 14px 16px;
     max-width: 340px;
@@ -472,11 +472,11 @@
 }
 
 .auto-tooltip-title {
-    color: #4caf50;
+    color: #00ff88;
     font-weight: 700;
     margin-bottom: 6px;
     font-size: 0.95rem;
-    border-bottom: 1px solid #2d313a;
+    border-bottom: 1px solid #1e3050;
     padding-bottom: 6px;
 }
 
@@ -487,10 +487,186 @@
 .auto-tooltip-link {
     display: inline-block;
     margin-top: 4px;
-    color: #4caf50;
+    color: #00ff88;
     font-size: 0.78rem;
     text-decoration: none;
     opacity: 0.7;
 }
 
 .auto-tooltip-link:hover { opacity: 1; }
+
+/* ---------- Навигация — состояния ссылок ---------- */
+.nav-links a.nav-link-done {
+    color: #00ff88;
+}
+.nav-links a.nav-link-done::after {
+    content: " ✓";
+    font-size: 0.72em;
+    opacity: 0.65;
+}
+.nav-links a.nav-link-locked {
+    opacity: 0.28;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+/* pointer-events off → JS click won't fire, поэтому блокируем через атрибут */
+.nav-links a.nav-link-locked {
+    pointer-events: auto;
+}
+
+/* ---------- Заблокированные шаги учебной траектории ---------- */
+.step-card.locked {
+    opacity: 0.38;
+    cursor: not-allowed;
+    filter: grayscale(0.4);
+}
+.step-card.locked:hover {
+    transform: none !important;
+    border-color: #1e3050 !important;
+    box-shadow: none !important;
+}
+.step-card.locked .step-name::after {
+    content: " 🔒";
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+/* ---------- Toast-уведомление ---------- */
+#progress-toast {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: #141e33;
+    border: 1px solid #ff4466;
+    color: #c9d1d9;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    z-index: 9999;
+    pointer-events: none;
+    transition: transform 0.28s ease, opacity 0.28s ease;
+    opacity: 0;
+    white-space: nowrap;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+}
+#progress-toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* ---------- Герой — CSS-сетка поверх фото ---------- */
+.hero { position: relative; }
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0,255,136,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,136,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+}
+
+/* ---------- Минутка истории ---------- */
+.history-block {
+    background: linear-gradient(135deg, #0d1524 0%, #141e33 100%);
+    border: 1px solid #1e3050;
+    border-left: 4px solid #ffaa00;
+    border-radius: 0 10px 10px 0;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+.history-block h2 {
+    color: #ffaa00;
+    margin-top: 0;
+}
+.history-case {
+    background: #0a0e1a;
+    border: 1px solid #1e3050;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 16px;
+}
+.history-case h3 {
+    color: #e0e8f0;
+    margin: 0 0 8px 0;
+    font-size: 1rem;
+}
+.history-case-year {
+    display: inline-block;
+    background: rgba(255,170,0,0.15);
+    color: #ffaa00;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+}
+.history-case p {
+    margin: 0;
+    font-size: 0.93rem;
+    color: #8b92a5;
+    line-height: 1.55;
+}
+
+/* ---------- Заблокированные шаги учебной траектории ---------- */
+.step-card.locked {
+    opacity: 0.38;
+    cursor: not-allowed;
+    filter: grayscale(0.4);
+}
+
+.step-card.locked:hover {
+    transform: none !important;
+    border-color: #1e3050 !important;
+    box-shadow: none !important;
+}
+
+.step-card.locked .step-name::after {
+    content: " 🔒";
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+/* ---------- Toast-уведомление ---------- */
+#progress-toast {
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: #141e33;
+    border: 1px solid #ff4466;
+    color: #c9d1d9;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    z-index: 9999;
+    pointer-events: none;
+    transition: transform 0.28s ease, opacity 0.28s ease;
+    opacity: 0;
+    white-space: nowrap;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+}
+
+#progress-toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* ---------- Герой — CSS-сетка поверх фото ---------- */
+.hero {
+    position: relative;
+}
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0,255,136,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,136,0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+}

@@ -2,7 +2,7 @@
    БАЗОВЫЕ СТИЛИ И ТЕМНАЯ ТЕМА
    ========================================= */
 body {
-    background-color: #0f1115;
+    background-color: #0a0e1a;
     color: #c9d1d9;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
@@ -11,9 +11,9 @@ body {
 }
 
 h1 {
-    color: #4caf50;
+    color: #00ff88;
     font-size: 2.2rem;
-    border-bottom: 2px solid #2d313a;
+    border-bottom: 2px solid #1e3050;
     padding-bottom: 10px;
     margin-bottom: 30px;
 }
@@ -37,10 +37,10 @@ p, li {
    ГЛАВНАЯ СТРАНИЦА (index.html)
    ========================================= */
 .hero {
-    background-color: #1a1c23;
+    background-color: #0f1729;
     padding: 20px 0;
     text-align: center;
-    border-bottom: 1px solid #2d313a;
+    border-bottom: 1px solid #1e3050;
     margin-bottom: 40px;
     background-image: url("image/backgroundHacker.jpg");
 }
@@ -70,8 +70,8 @@ p, li {
 }
 
 .card {
-    background-color: #1a1c23;
-    border: 1px solid #2d313a;
+    background-color: #141e33;
+    border: 1px solid #1e3050;
     border-radius: 10px;
     padding: 20px;
     text-decoration: none;
@@ -80,21 +80,22 @@ p, li {
 }
 
 .card h3 {
-    color: #4caf50;
+    color: #00ff88;
     margin-top: 0;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    border-color: #4caf50;
+    border-color: #00ff88;
+    box-shadow: 0 0 16px rgba(0,255,136,0.12);
 }
 
 /* =========================================
    ТЕКСТОВЫЕ БЛОКИ (Внутренние страницы)
    ========================================= */
 .info-block {
-    background-color: #1a1c23;
-    border: 1px solid #2d313a;
+    background-color: #141e33;
+    border: 1px solid #1e3050;
     border-radius: 10px;
     padding: 25px;
     margin-bottom: 25px;
@@ -110,8 +111,8 @@ p, li {
 }
 
 .warning-block {
-    background-color: rgba(255, 165, 0, 0.1);
-    border-left: 4px solid orange;
+    background-color: rgba(255, 165, 0, 0.07);
+    border-left: 4px solid #ffaa00;
     padding: 15px 20px;
     margin-bottom: 30px;
     border-radius: 0 10px 10px 0;
@@ -119,7 +120,7 @@ p, li {
 
 .expert-quote {
     font-style: italic;
-    border-left: 3px solid #4caf50;
+    border-left: 3px solid #00ff88;
     padding-left: 15px;
     margin: 20px 0;
     color: #8b92a5;

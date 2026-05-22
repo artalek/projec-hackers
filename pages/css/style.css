@@ -2,7 +2,7 @@
    БАЗОВЫЕ СТИЛИ И ТЕМНАЯ ТЕМА
    ========================================= */
 body {
-    background-color: #0f1115;
+    background-color: #0a0e1a;
     color: #c9d1d9;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
@@ -11,9 +11,9 @@ body {
 }
 
 h1 {
-    color: #4caf50;
+    color: #00ff88;
     font-size: 2.2rem;
-    border-bottom: 2px solid #2d313a;
+    border-bottom: 2px solid #1e3050;
     padding-bottom: 10px;
     margin-bottom: 30px;
 }
@@ -37,10 +37,10 @@ p, li {
    ГЛАВНАЯ СТРАНИЦА (index.html)
    ========================================= */
 .hero {
-    background-color: #1a1c23;
+    background-color: #141e33;
     padding: 20px 0;
     text-align: center;
-    border-bottom: 1px solid #2d313a;
+    border-bottom: 1px solid #1e3050;
     margin-bottom: 40px;
     background-image: url("image/backgroundHacker.jpg");
 }
@@ -70,8 +70,8 @@ p, li {
 }
 
 .card {
-    background-color: #1a1c23;
-    border: 1px solid #2d313a;
+    background-color: #141e33;
+    border: 1px solid #1e3050;
     border-radius: 10px;
     padding: 20px;
     text-decoration: none;
@@ -80,21 +80,21 @@ p, li {
 }
 
 .card h3 {
-    color: #4caf50;
+    color: #00ff88;
     margin-top: 0;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    border-color: #4caf50;
+    border-color: #00ff88;
 }
 
 /* =========================================
    ТЕКСТОВЫЕ БЛОКИ (Внутренние страницы)
    ========================================= */
 .info-block {
-    background-color: #1a1c23;
-    border: 1px solid #2d313a;
+    background-color: #141e33;
+    border: 1px solid #1e3050;
     border-radius: 10px;
     padding: 25px;
     margin-bottom: 25px;
@@ -119,7 +119,7 @@ p, li {
 
 .expert-quote {
     font-style: italic;
-    border-left: 3px solid #4caf50;
+    border-left: 3px solid #00ff88;
     padding-left: 15px;
     margin: 20px 0;
     color: #8b92a5;
@@ -191,8 +191,8 @@ footer {
 
 
 .page-header {
-    background-color: #1a1c23;
-    border-bottom: 1px solid #2d313a;
+    background-color: #141e33;
+    border-bottom: 1px solid #1e3050;
     padding: 15px 0;
     margin-bottom: 40px;
     background-image: url("image/backgroundHacker.jpg");
@@ -207,10 +207,10 @@ footer {
 }
 
 .hero {
-    background-color: #1a1c23;
+    background-color: #141e33;
     padding: 20px 0;
     text-align: center;
-    border-bottom: 1px solid #2d313a;
+    border-bottom: 1px solid #1e3050;
     margin-bottom: 40px;
     background-image: url("image/backgroundHacker.jpg");
 }
@@ -223,19 +223,23 @@ footer {
 
 
 .btn-home {
-    background-color: #2b2e38;
-    color: #ffffff;
+    display: inline-block;
+    margin: 20px 0 16px;
+    background-color: #141e33;
+    color: #c9d1d9;
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 8px;
     font-weight: 600;
     transition: background-color 0.2s ease, transform 0.1s ease;
-    border: 1px solid #3c404b;
+    border: 1px solid #1e3050;
     white-space: nowrap;
 }
 
 .btn-home:hover {
-    background-color: #3b404d;
+    background-color: #1e3050;
+    border-color: #00ff88;
+    color: #00ff88;
     transform: translateY(-2px);
     background-color: rgb(71, 71, 71);
 

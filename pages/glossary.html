@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8" />
@@ -329,50 +329,42 @@
     .term-card { padding: 14px 16px; }
   }
 nav {
-  /* Отступы от краев страницы */
-  padding: 20px 40px; 
-  /* Превращаем nav в строку для выравнивания "На главную" и списка в один ряд */
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 30px;
+  /* Отступ от края страницы */
+  padding-left: 40px; 
+  padding-top: 20px;
 }
 
 nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  /* Располагаем элементы в строку */
-  display: flex;
-  /* Разрешаем перенос, только если ссылки не влезают по ширине экрана */
-  flex-wrap: wrap; 
-  /* Расстояние между ссылками */
-  gap: 15px 25px; 
+}
+
+nav ul li {
+  /* Расстояние между пунктами списка */
+  margin-bottom: 15px; 
 }
 
 nav a {
-  /* Увеличенный размер */
+  /* Увеличение размера текста */
   font-size: 1.2em; 
   color: #00e5ff;
   text-decoration: none;
   font-weight: bold;
-  transition: all 0.3s ease;
-  display: inline-block;
-  white-space: nowrap; /* Запрещаем перенос текста внутри самой ссылки */
+  /* Плавный переход цвета при наведении */
+  transition: color 0.3s ease; 
 }
 
 nav a:hover {
   color: #ffffff;
-  /* Неоновое свечение при наведении */
-  text-shadow: 0 0 10px #00e5ff;
 }
 
-/* Ссылка "На главную" теперь аккуратно стоит в общем ряду */
+/* Стиль для ссылки "На главную", чтобы она не сливалась */
 nav > a {
   display: inline-block;
+  margin-bottom: 30px;
   font-size: 1.1em;
-  opacity: 0.7;
-  text-decoration: none;
+  opacity: 0.8;
 }
 </style>
 </head>
