@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кодификатор хакеров — База знаний ИБ</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/extra.css">
+</head>
+<body>
+
+<header class="hero">
+    <div class="container text-container">
+        <h1>КЛАССИФИКАЦИЯ ХАКЕРОВ</h1>
+        <p>Образовательный веб-ресурс по информационной безопасности для студентов 1 курса специальности «Информационная безопасность».</p>
+    </div>
+</header>
+
+<main class="container">
+
+    <!-- ======================================== -->
+    <!-- 1. ЖИВАЯ КАРТА АТАК (крючок внимания) -->
+    <!-- ======================================== -->
+    <section class="cyber-map-embed">
+        <div class="map-embed-header">
+            <div class="map-embed-title">
+                <span class="live-dot"></span>
+                <span>LIVE · Кибератаки по всему миру</span>
+            </div>
+            <a href="pages/cyber_map.html" class="map-embed-expand">Развернуть карту →</a>
+        </div>
+        <div class="map-embed-body">
+            <div class="map-svg-wrapper">
+                <svg id="mini-world-map" viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="mini-grid" width="50" height="50" patternUnits="userSpaceOnUse">
+                            <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#1a2a3e" stroke-width="0.5"/>
+                        </pattern>
+                    </defs>
+                    <rect width="1000" height="500" fill="url(#mini-grid)"/>
+                    <g fill="#1a2e4a" stroke="#2a4a6e" stroke-width="0.5" opacity="0.8">
+                        <path d="M 80 80 L 180 70 L 240 90 L 260 140 L 240 200 L 180 240 L 120 230 L 90 180 L 70 130 Z"/>
+                        <path d="M 240 260 L 290 270 L 310 320 L 290 390 L 260 420 L 230 400 L 220 340 L 225 290 Z"/>
+                        <path d="M 460 100 L 540 90 L 560 120 L 550 160 L 510 180 L 470 170 L 450 140 Z"/>
+                        <path d="M 480 200 L 560 195 L 580 240 L 570 320 L 530 380 L 490 370 L 470 310 L 465 250 Z"/>
+                        <path d="M 560 80 L 780 70 L 860 100 L 880 150 L 840 200 L 780 210 L 720 190 L 650 200 L 580 170 L 560 120 Z"/>
+                        <path d="M 680 220 L 760 230 L 780 270 L 750 310 L 700 300 L 680 260 Z"/>
+                        <path d="M 800 340 L 880 330 L 900 370 L 870 400 L 820 395 L 800 370 Z"/>
+                        <path d="M 445 130 L 460 128 L 465 145 L 450 150 Z"/>
+                        <path d="M 870 180 L 885 175 L 890 195 L 878 210 Z"/>
+                    </g>
+                    <g id="mini-cities"></g>
+                    <g id="mini-attack-lines"></g>
+                    <g id="mini-explosions"></g>
+                </svg>
+            </div>
+            <div class="map-stats-panel">
+                <div class="mini-stat">
+                    <div class="mini-stat-label">Всего атак</div>
+                    <div class="mini-stat-value red" id="mini-total">0</div>
+                </div>
+                <div class="mini-stat">
+                    <div class="mini-stat-label">Активных</div>
+                    <div class="mini-stat-value amber" id="mini-active">0</div>
+                </div>
+                <div class="mini-stat">
+                    <div class="mini-stat-label">Заблокировано</div>
+                    <div class="mini-stat-value" id="mini-blocked">0</div>
+                </div>
+                <div class="mini-log">
+                    <div class="mini-log-title">📡 События</div>
+                    <div id="mini-log-container"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================== -->
+    <!-- 2. ЦИФРЫ-ШОКЕРЫ -->
+    <!-- ======================================== -->
+    <section class="shocker-stats">
+        <div class="shocker-card">
+            <span class="shocker-num red">$8 трлн</span>
+            <span class="shocker-desc">глобальный ущерб от киберпреступности в 2023 году</span>
+        </div>
+        <div class="shocker-card">
+            <span class="shocker-num amber">4 /сек</span>
+            <span class="shocker-desc">столько кибератак происходит в мире каждую секунду</span>
+        </div>
+        <div class="shocker-card">
+            <span class="shocker-num">пять дней </span>
+            <span class="shocker-desc">Атака остановила работу всех трубопроводов системы на Кибератака на Colonial Pipeline (США)</span>
+        </div>
+        <div class="shocker-card">
+            <span class="shocker-num">$2,5 млн</span>
+            <span class="shocker-desc">цена одной уязвимости нулевого дня в iOS на чёрном рынке</span>
+        </div>
+    </section>
+
+    <!-- ======================================== -->
+    <!-- 3. ПРЕДУПРЕЖДЕНИЕ -->
+    <!-- ======================================== -->
+    <section class="warning-block">
+        <p>⚠️ <strong>ВАЖНО:</strong> Весь контент носит исключительно образовательный характер. Инструкций по проведению атак не содержится. Любое использование полученных знаний для нарушения работы компьютерных систем или несанкционированного доступа преследуется по закону.</p>
+    </section>
+
+    <!-- ======================================== -->
+    <!-- 4. УЧЕБНАЯ ТРАЕКТОРИЯ -->
+    <!-- ======================================== -->
+    <section class="learning-path">
+        <h2 class="learning-path-title">🎓 Путь обучения</h2>
+        <p class="learning-path-subtitle">От основ — к продвинутым угрозам. Нажимай на блоки по порядку — твой прогресс сохраняется автоматически.</p>
+
+        <div class="progress-overall">
+            <span>Общий прогресс:</span>
+            <div class="progress-overall-bar">
+                <div class="progress-overall-fill" id="overall-fill"></div>
+            </div>
+            <span class="progress-percent" id="overall-percent">0%</span>
+        </div>
+
+        <!-- УРОВЕНЬ 1: ОСНОВЫ -->
+        <div class="level-card level-1">
+            <div class="level-header">
+                <div class="level-title-block">
+                    <div class="level-badge">01</div>
+                    <div class="level-info">
+                        <h3>🟢 Основы — Кто такие хакеры</h3>
+                        <p>Первое знакомство: этичная сторона, новички, общие понятия.</p>
+                    </div>
+                </div>
+                <div class="level-progress">
+                    <div class="level-progress-bar">
+                        <div class="level-progress-fill" data-level="1" style="width: 0%"></div>
+                    </div>
+                    <span data-level-text="1">0 / 3</span>
+                </div>
+            </div>
+            <div class="level-steps">
+                <a href="pages/white_hat.html" class="step-card" data-step="white_hat">
+                    <div class="step-check"></div>
+                    <div class="step-name">White Hat · Этичные хакеры</div>
+                </a>
+                <a href="pages/neophytes.html" class="step-card" data-step="neophytes">
+                    <div class="step-check"></div>
+                    <div class="step-name">Neophytes · Новички</div>
+                </a>
+                <a href="pages/script_kiddies.html" class="step-card" data-step="script_kiddies">
+                    <div class="step-check"></div>
+                    <div class="step-name">Script Kiddies · Скрипт-кидди</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- УРОВЕНЬ 2: ПРЕСТУПНЫЙ МИР -->
+        <div class="level-card level-2">
+            <div class="level-header">
+                <div class="level-title-block">
+                    <div class="level-badge">02</div>
+                    <div class="level-info">
+                        <h3>🟡 Тёмная сторона — Преступники и активисты</h3>
+                        <p>Мотивы, методы и правовые границы.</p>
+                    </div>
+                </div>
+                <div class="level-progress">
+                    <div class="level-progress-bar">
+                        <div class="level-progress-fill" data-level="2" style="width: 0%"></div>
+                    </div>
+                    <span data-level-text="2">0 / 3</span>
+                </div>
+            </div>
+            <div class="level-steps">
+                <a href="pages/black_hat.html" class="step-card" data-step="black_hat">
+                    <div class="step-check"></div>
+                    <div class="step-name">Black Hat · Киберпреступники</div>
+                </a>
+                <a href="pages/grey_hat.html" class="step-card" data-step="grey_hat">
+                    <div class="step-check"></div>
+                    <div class="step-name">Grey Hat · Серая зона</div>
+                </a>
+                <a href="pages/hacktivists.html" class="step-card" data-step="hacktivists">
+                    <div class="step-check"></div>
+                    <div class="step-name">Hacktivists · Хактивисты</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- УРОВЕНЬ 3: ПРОДВИНУТЫЕ УГРОЗЫ -->
+        <div class="level-card level-3">
+            <div class="level-header">
+                <div class="level-title-block">
+                    <div class="level-badge">03</div>
+                    <div class="level-info">
+                        <h3>🔴 Продвинутые угрозы — Элита и госструктуры</h3>
+                        <p>APT-группировки, кибервойны, атаки на инфраструктуру.</p>
+                    </div>
+                </div>
+                <div class="level-progress">
+                    <div class="level-progress-bar">
+                        <div class="level-progress-fill" data-level="3" style="width: 0%"></div>
+                    </div>
+                    <span data-level-text="3">0 / 4</span>
+                </div>
+            </div>
+            <div class="level-steps">
+                <a href="pages/state_sponsored.html" class="step-card" data-step="state_sponsored">
+                    <div class="step-check"></div>
+                    <div class="step-name">State-Sponsored · Госхакеры</div>
+                </a>
+                <a href="pages/insider_threats.html" class="step-card" data-step="insider_threats">
+                    <div class="step-check"></div>
+                    <div class="step-name">Insider Threats · Инсайдеры</div>
+                </a>
+                <a href="pages/cyber_terrorists.html" class="step-card" data-step="cyber_terrorists">
+                    <div class="step-check"></div>
+                    <div class="step-name">Cyber-terrorists · Кибертеррористы</div>
+                </a>
+                <a href="pages/suicide_hackers.html" class="step-card" data-step="suicide_hackers">
+                    <div class="step-check"></div>
+                    <div class="step-name">Suicide Hackers · Открытые взломщики</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="reset-progress">
+            <button id="reset-btn">🔄 Сбросить прогресс</button>
+        </div>
+    </section>
+
+    <!-- ======================================== -->
+    <!-- 5. КАТАЛОГ (классический вид) -->
+    <!-- ======================================== -->
+    <section id="catalog">
+        <h2 class="section-title">Все разделы</h2>
+        <p class="catalog-intro">Если хочешь изучать темы в свободном порядке — выбирай любой раздел.</p>
+        <div class="grid">
+            <a href="pages/white_hat.html" class="card">
+                <h3>White Hat</h3>
+                <p>Этичные хакеры, использующие свои навыки для поиска уязвимостей с разрешения владельца.</p>
+            </a>
+            <a href="pages/black_hat.html" class="card">
+                <h3>Black Hat</h3>
+                <p>Киберпреступники, нарушающие безопасность ради личной выгоды или саботажа.</p>
+            </a>
+            <a href="pages/grey_hat.html" class="card">
+                <h3>Grey Hat</h3>
+                <p>Хакеры на границе между этичными исследователями и злоумышленниками.</p>
+            </a>
+            <a href="pages/script_kiddies.html" class="card">
+                <h3>Script Kiddies</h3>
+                <p>Новички, использующие готовые утилиты без глубоких технических знаний.</p>
+            </a>
+            <a href="pages/hacktivists.html" class="card">
+                <h3>Hacktivists</h3>
+                <p>Хакеры, мотивированные политическими или социальными убеждениями.</p>
+            </a>
+            <a href="pages/state_sponsored.html" class="card">
+                <h3>State-Sponsored</h3>
+                <p>Государственно-спонсируемые хакеры, работающие на спецслужбы.</p>
+            </a>
+            <a href="pages/insider_threats.html" class="card">
+                <h3>Insider Threats</h3>
+                <p>Риски, исходящие от легитимных пользователей системы (сотрудников).</p>
+            </a>
+            <a href="pages/cyber_terrorists.html" class="card">
+                <h3>Cyber-terrorists</h3>
+                <p>Субъекты, совершающие атаки на критическую инфраструктуру.</p>
+            </a>
+            <a href="pages/suicide_hackers.html" class="card">
+                <h3>Suicide Hackers</h3>
+                <p>Взломщики, которые не скрывают свою личность и работают открыто.</p>
+            </a>
+            <a href="pages/neophytes.html" class="card">
+                <h3>Neophytes</h3>
+                <p>Новички, делающие первые шаги в области информационной безопасности.</p>
+            </a>
+            <a href="pages/glossary.html" class="card card-special">
+                <h3>📖 Глоссарий</h3>
+                <p>База из 90+ терминов ИБ с поиском, фильтрами и примерами.</p>
+            </a>
+            <a href="pages/cyber_map.html" class="card card-special">
+                <h3>🗺 Hacker Map</h3>
+                <p>Карта, показывающая в реальном времени кибератаки по всему миру.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- ======================================== -->
+    <!-- 6. ТЕОРИЯ, ЦИТАТЫ, ИСТОРИЯ -->
+    <!-- ======================================== -->
+    <section id="theory" class="info-block">
+        <h2>Что такое хакерство?</h2>
+        <p>Хакерство (Hacking) — это нестандартный подход к системам, поиск их неочевидных свойств и уязвимостей. Сегодня это слово охватывает весь спектр: от преступников до инженеров, защищающих критическую инфраструктуру.</p>
+        <p>Понимание тактик и мотивов различных акторов позволяет ИБ-специалисту правильно оценивать риски и прогнозировать векторы будущих атак.</p>
+    </section>
+
+    <section id="experts" class="info-block">
+        <h2>Говорят эксперты</h2>
+        <blockquote class="expert-quote">
+            «Любители взламывают системы, профессионалы взламывают людей».
+            <cite><span class="tooltip">— Брюс Шнайер<span class="tooltip-text">Родился 15 января 1963, Нью-Йорк. Американский криптограф, писатель и специалист по компьютерной безопасности.</span></span></cite>
+        </blockquote>
+        <blockquote class="expert-quote">
+            «В интернете нет абсолютной безопасности. Вопрос лишь в том, сколько времени и ресурсов потребуется для взлома».
+            <cite><span class="tooltip">— Юджин Касперский<span class="tooltip-text">Родился 4 октября 1965 года в Новороссийске. Cпециалист в сфере информационной безопасности и предприниматель. Один из основателей, основной владелец и нынешний глава АО «Лаборатория Касперского»</span></span></cite>
+        </blockquote>
+    </section>
+
+    <section id="history" class="info-block">
+        <h2>Эволюция хакерства</h2>
+        <ul>
+            <li><strong>1960-е:</strong> Эпоха созидателей (MIT). Хак означал элегантное решение.</li>
+            <li><strong>1970–1980-е:</strong> Фрикинг и появление первых хакерских журналов (Phrack).</li>
+            <li><strong>1990-е:</strong> Коммерциализация интернета, массовые вирусы и формирование правовой базы.</li>
+            <li><strong>2000-е:</strong> Превращение в теневую индустрию с организованными группами.</li>
+            <li><strong>2010-е+:</strong> Эра кибервойн, APT-группировки и атаки на инфраструктуру (Stuxnet).</li>
+        </ul>
+    </section>
+</main>
+
+<footer class="container">
+    <p>&copy; 2026 Лаборатория ИБ. Учебный проект.</p>
+</footer>
+
+<!-- Скрипт мини-карты и прогресса -->
+<script src="js/mini-map.js"></script>
+<script src="js/progress.js"></script>
+<!-- Автоматические подсказки к терминам -->
+<script src="js/tooltips.js"></script>
+
+</body>
+</html>
